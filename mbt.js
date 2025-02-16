@@ -308,10 +308,6 @@ var createLayers = function() {
     osmLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
             attributions: [
-                new ol.Attribution({
-                    html: 'All maps &copy; ' +
-                    '<a href="http://www.openstreetmap.org/">OpenStreetMap</a>'
-                }),
                 ol.source.OSM.ATTRIBUTION
             ],
             crossOrigin: null,

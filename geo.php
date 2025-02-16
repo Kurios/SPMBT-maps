@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head style="height:100%">
     <title>WinSPMBT Map Tool</title>
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="v3.11.2/ol.css" type="text/css">
-    <script src="v3.11.2/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
     <style>
         .rotate-north {
             top: 65px;
@@ -107,12 +107,12 @@
         }
     </style>
 </head>
-<body>
+<body style="height:100%">
 <div class="container-fluid">
 
     <div class="row-fluid">
         <div class="span12">
-            <div id="map" class="map"></div>
+            <div id="map" class="map" style="height:100vh"></div>
         </div>
     </div>
 
@@ -243,7 +243,7 @@
     var geojsonObject = {};
 
     var vectorSource = new ol.source.Vector({
-        features: (new ol.format.GeoJSON()).readFeatures(geojsonObject)
+        //features: (new ol.format.GeoJSON())//.readFeatures(geojsonObject)
     });
 
     var vectorLayer = new ol.layer.Vector({
@@ -261,11 +261,6 @@
     var map = new ol.Map({
         layers: allLayers,
         target: 'map',
-        controls: ol.control.defaults({
-            attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-                collapsible: false
-            })
-        }),
         view: new ol.View({
             center: webMercator,
             zoom: 13,
