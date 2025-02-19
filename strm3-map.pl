@@ -189,7 +189,7 @@ while (($option, $value) = nextOption()) {
   }
   if ($option eq 'lo') {
     die ("Must specify latitude before longitude") if ($ARC_SECOND_COMPRESSION == -1);
-    if ($value =~ /^W\d{1,2}(\.\d*)?$/) {
+    if ($value =~ /^W\d{1,4}(\.\d*)?$/) {
       $lo = $value;
       $lox = substr $lo, 1;
       $SRC_X = $SRC_X / $ARC_SECOND_COMPRESSION;
@@ -220,7 +220,7 @@ Getopt::Mixed::cleanup();
 
 print "DEBUG: $hgtfile";
 
-help() if (!($hgtfile =~ /[SN]\d{2}[WE]\d{3}/));
+#help() if (!($hgtfile =~ /[SN]\d{1}[WE]\d{4}/));
 
 $hgtfile = $hgtfile . ".hgt";
 
